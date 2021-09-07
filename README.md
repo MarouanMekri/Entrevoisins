@@ -11,10 +11,10 @@ git clone https://github.com/NucleoNNN/Entrevoisins.git
 * Exécuter le code en allant sur la barre des menus et cliquer sur *Run ensuite sur Run 'app'*.
 * Assurez-vous d'avoir au moins l'API 25 (Nougat) installée si vous utilisez l'émulateur pour tester l'application.
 
-## Features
+## Nouveautés
 
-- Adding & Deleting neighbours
-- Listing all neighbours
-- View detail infos
-- Add or remove neighbours as "Favorites"
-- Listing "Favorites"
+- Ajouter et supprimer des voisins
+- Liste des voisins
+- Afficher les informations détaillées
+- Ajouter ou supprimer des voisins "Favoris"
+- Liste des voisins "Favoris"
