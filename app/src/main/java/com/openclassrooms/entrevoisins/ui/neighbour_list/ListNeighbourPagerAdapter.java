@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragmentList;

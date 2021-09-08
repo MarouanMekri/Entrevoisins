@@ -1,14 +1,8 @@
 package com.openclassrooms.entrevoisins.service;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.DetailsActivity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Dummy mock for the Api
