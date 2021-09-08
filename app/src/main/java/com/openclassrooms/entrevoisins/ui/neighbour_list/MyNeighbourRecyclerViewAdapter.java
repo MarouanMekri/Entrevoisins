@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    private RecyclerViewClickInterface recyclerViewClickInterface;
+    private final RecyclerViewClickInterface recyclerViewClickInterface;
 
     public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, RecyclerViewClickInterface recyclerViewClickInterface) {
         mNeighbours = items;
@@ -62,7 +62,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         return mNeighbours.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.item_list_avatar)
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name)

@@ -87,7 +87,7 @@ public class NeighbourFragment extends Fragment implements RecyclerViewClickInte
     public void onItemClick(int position) {
         Intent intent = new Intent(getContext(), DetailsActivity.class);
         intent.putExtra(KEY_NEIGHBOUR, mNeighbours.get(position));
-        getContext().startActivity(intent);
+        startActivity(intent);
     }
 
     @Override

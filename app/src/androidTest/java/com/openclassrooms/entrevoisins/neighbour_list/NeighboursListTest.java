@@ -37,7 +37,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isRoot;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
-import static java.lang.Thread.sleep;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -48,17 +47,15 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class NeighboursListTest {
 
     // This is fixed
-    private static int ITEMS_COUNT = 12;
-    private static String FIRST_ITEM_NAME = "Caroline";
+    private static final int ITEMS_COUNT = 12;
+    private static final String FIRST_ITEM_NAME = "Caroline";
 
-    private ListNeighbourActivity mActivity;
-
-    Matcher<View> hasValueEqualTo(final String content) {
+    Matcher<View> hasValueEqualTo() {
         return new TypeSafeMatcher<View>() {
 
             @Override
             public void describeTo(Description description) {
-                description.appendText("Has TextView the value:  " + content);
+                description.appendText("Has TextView the value:  " + NeighboursListTest.FIRST_ITEM_NAME);
             }
 
             @Override
@@ -68,7 +65,7 @@ public class NeighboursListTest {
                 }
                 String text;
                 text = ((TextView) view).getText().toString();
-                return (text.equalsIgnoreCase(content));
+                return (text.equalsIgnoreCase(NeighboursListTest.FIRST_ITEM_NAME));
             }
         };
     }
@@ -79,7 +76,7 @@ public class NeighboursListTest {
 
     @Before
     public void setUp() {
-        mActivity = mActivityRule.getActivity();
+        ListNeighbourActivity mActivity = mActivityRule.getActivity();
         assertThat(mActivity, notNullValue());
         Intents.init();
     }
@@ -120,15 +117,15 @@ public class NeighboursListTest {
     }
 
     @Test
-    public void myNeighboursList_clickAction_shouldGetSelectedNeighbourName () {
+    public void myNeighboursList_clickAction_shouldGetSelectedNeighbourName() {
         // Click on first element of recyclerview
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         // Use hasValueEqualTo to get and check txtViewUsername
-        onView(allOf(withId(R.id.txtViewUsername), isDisplayed())) .check(matches(hasValueEqualTo(FIRST_ITEM_NAME)));
+        onView(allOf(withId(R.id.txtViewUsername), isDisplayed())) .check(matches(hasValueEqualTo()));
     }
 
     @Test
-    public void addNeighboursToFavorite_thenFavoriteNeighbour_shouldShowOnlyFavorites () throws InterruptedException {
+    public void addNeighboursToFavorite_thenFavoriteNeighbour_shouldShowOnlyFavorites() {
         // Click on first item of recyclerview
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         // Add first item to favorites
@@ -139,9 +136,7 @@ public class NeighboursListTest {
         ViewInteraction viewPager = onView(withId(R.id.container));
         // Swipe to favorites fragment
         viewPager.perform(swipeLeft());
-        // Wait until favorites fragment load
-        sleep(1000);
         // Check if recyclerview show only favorites
-        onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount(1));
+        onView(allOf(withId(R.id.list_favNeighbours), isDisplayed())).check(withItemCount(1));
     }
 }

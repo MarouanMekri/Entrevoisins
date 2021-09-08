@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> fragmentList;
+    private final List<Fragment> fragmentList;
 
     public ListNeighbourPagerAdapter(FragmentManager fm, List<Fragment> fragmentList) {
         super(fm);

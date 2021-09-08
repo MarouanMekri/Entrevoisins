@@ -1,7 +1,5 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.content.Intent;
-
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -97,9 +95,7 @@ public class DetailsActivity extends AppCompatActivity {
     // Back button onClick
     @OnClick(R.id.imgViewBack)
     void backToListNeighbour(){
-        Intent intent = new Intent(this, ListNeighbourActivity.class);
         finish();
-        startActivity(intent);
     }
 
     // Add favorite onClick

@@ -9,11 +9,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -59,7 +57,7 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void addThenDeleteNeighbourFromFavoritesWithSuccess () {
+    public void addThenDeleteNeighbourFromFavoritesWithSuccess() {
         // Get favorite neighbours list
         List<Neighbour> favNeighbours = service.getNeighbours().stream().filter(Neighbour::getIsFavorite).collect(Collectors.toList());
         // Select first neighbour from neighbour list

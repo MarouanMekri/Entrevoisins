@@ -4,7 +4,6 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import java.util.List;
 
-
 /**
  * Neighbour API client
  */
