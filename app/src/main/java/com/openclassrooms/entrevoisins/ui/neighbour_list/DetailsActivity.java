@@ -65,7 +65,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
     }
 
-    // Retrieve data from MyNeighbourRecyclerViewAdapter
+    // Retrieve data from NeighbourFragment
     void getData() {
         if (getIntent().hasExtra(KEY_NEIGHBOUR)) {
             neighbour = (Neighbour) getIntent().getSerializableExtra(KEY_NEIGHBOUR);
