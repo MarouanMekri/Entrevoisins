@@ -43,9 +43,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public void deleteNeighbourFromFav(Neighbour neighbour) {
         neighbour.setFavorite(false);
-        // Check if index is valid
-        if (neighbours.contains(neighbour)) {
-            neighbours.set(neighbours.indexOf(neighbour), neighbour);
-        }
+        neighbours.set(neighbours.indexOf(neighbour), neighbour);
     }
 }
