@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertFalse;
@@ -57,18 +58,17 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void addThenDeleteNeighbourFromFavoritesWithSuccess() {
-        // Get favorite neighbours list
-        List<Neighbour> favNeighbours = service.getNeighbours().stream().filter(Neighbour::getIsFavorite).collect(Collectors.toList());
-        // Select first neighbour from neighbour list
+    public void addNeighbourToFavoriteWithSuccess() {
         Neighbour neighbourToFav = new DummyNeighbourApiService().getNeighbours().get(0);
-        // Add neighbour to favorite list
         service.addNeighbourToFav(neighbourToFav);
-        // Check if neighbour is added to favorite list
         assertTrue(service.getNeighbours().stream().filter(Neighbour::getIsFavorite).collect(Collectors.toList()).contains(neighbourToFav));
-        // Delete neighbour from favorite list
+    }
+
+    @Test
+    public void deleteNeighbourFromFavoritesWithSuccess() {
+        Neighbour neighbourToFav = new DummyNeighbourApiService().getNeighbours().get(0);
+        service.addNeighbourToFav(neighbourToFav);
         service.deleteNeighbourFromFav(neighbourToFav);
-        // Check if neighbour is removed to favorite list
-        assertFalse(favNeighbours.contains(neighbourToFav));
+        assertFalse(service.getNeighbours().stream().filter(Neighbour::getIsFavorite).collect(Collectors.toList()).contains(neighbourToFav));
     }
 }
